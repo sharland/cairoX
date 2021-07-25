@@ -4,6 +4,7 @@ import math
 from random import *
 import os, sys
 from PIL import Image, ImageOps
+
 try:
     import cairo
 except:
@@ -18,6 +19,9 @@ def angle_between(p1, p2):
 
 '''
 
+'''
+Used to calculate the angle between two points where each point is a combination of an x and y coordinate
+'''
 def angleBetween(p1, p2):
     myradians = math.atan2(p2[1]-p1[1], p2[0]-p1[0])
     mydegrees = math.degrees(myradians)
