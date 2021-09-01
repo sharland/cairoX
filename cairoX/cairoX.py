@@ -205,12 +205,3 @@ def colScale(gapSize,palette):
         colours.append(colour)
     
     return colours
-
-def saveFile():
-    now = time.localtime()
-    print(now.tm_year)
-    formattedNow = str(now.tm_year)+str(now.tm_mon)+str(now.tm_mday)+str(now.tm_hour)+str(now.tm_min)+str(now.tm_min)
-    fileName = os.path.basename(__file__)
-    folderName = os.path.realpath(__file__)
-    #formattedFileName = folderName+fileName+formattedNow+".png"
-    return folderName,fileName,formattedNow
