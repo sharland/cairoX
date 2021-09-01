@@ -213,4 +213,4 @@ def saveFile():
     fileName = os.path.basename(__file__)
     folderName = os.path.realpath(__file__)
     #formattedFileName = folderName+fileName+formattedNow+".png"
-    return fileName,folderName,formattedNow
+    return folderName+fileName+formattedNow
