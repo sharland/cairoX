@@ -205,3 +205,19 @@ def colScale(gapSize,palette):
         colours.append(colour)
     
     return colours
+
+def saveImage(surface, scriptFile):
+    """
+    Save surface as PNG with timestamped filename in same folder as script.
+    Usage: saveImage(surface, __file__)
+    Returns: the full path of the saved file
+    """
+    import time
+    import os
+    
+    now = time.localtime()
+    timestamp = str(now.tm_year) + str(now.tm_mon) + str(now.tm_mday) + str(now.tm_hour) + str(now.tm_min) + str(now.tm_sec)
+    fullPath = os.path.realpath(scriptFile) + timestamp + ".png"
+    surface.write_to_png(fullPath)
+    print("Saved:", fullPath)
+    return fullPath
