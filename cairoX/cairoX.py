@@ -46,7 +46,7 @@ def fibCreate(w,h):             #working
 def background(r,g,b,w,h,surface):
     context = cairo.Context(surface) 
     context.set_source_rgb(r/255, g/255, b/255)
-    context.rectangle(0, 0, h, w)
+    context.rectangle(0, 0, w, h)
     return context.fill()
 
 def gradientDirection():    #call this once
