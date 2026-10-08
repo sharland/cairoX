@@ -221,3 +221,53 @@ def saveImage(surface, scriptFile):
     surface.write_to_png(fullPath)
     print("Saved:", fullPath)
     return fullPath
+
+def printRuntime(startTime):
+    """
+    Print how long the script took to run.
+    Usage: Call at end of script with the startTime captured at the beginning.
+    """
+    import time
+    
+    endTime = time.time()
+    runTime = endTime - startTime
+    
+    print("")
+    if runTime < 60:
+        print("run time in seconds:", round(runTime, 2))
+    else:
+        print("run time in minutes and seconds", str(int(runTime // 60)) + ":" + str(int(runTime % 60)))
+    print("")
+
+def getMid(p1, p2):
+    """
+    Return the midpoint between two points.
+    Usage: getMid((100, 200), (300, 400)) returns (200.0, 300.0)
+    """
+    return (p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2
+
+def circlePoints(midx, midy, radius, numPoints, rotations=1, startAngle=0):
+    """
+    Generate a list of points around a circle.
+    
+    midx, midy: centre of circle
+    radius: radius of circle
+    numPoints: how many points to generate
+    rotations: how many times to go around (default 1)
+    startAngle: starting angle in radians (default 0)
+    
+    Returns: list of [x, y] points
+    """
+    import math
+    
+    points = []
+    step = (2 * math.pi * rotations) / numPoints
+    theta = startAngle
+    
+    for i in range(numPoints):
+        x = midx + radius * math.cos(theta)
+        y = midy + radius * math.sin(theta)
+        points.append([x, y])
+        theta += step
+    
+    return points
